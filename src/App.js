@@ -1,12 +1,24 @@
-import React from 'react';
+import React from "react";
+// import {
+//   getFoodItems,
+//   getAnOrder,
+//   deleteAnOrder,
+//   listOrders,
+//   createAnOrder
+// } from "./utils/api";
 
+class App extends React.Component {
+  componentDidMount() {
 
-function App() {
-  return (
-    <div className="App">
-      <p>Hello</p>
-    </div>
-  );
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <p>Hello</p>
+      </div>
+    );
+  }
 }
 
 export default App;
