@@ -8,6 +8,7 @@ import {
 export const GET_ORDERS = "GET_ORDERS";
 export const GET_AN_ORDERS = "GET_AN_ORDERS";
 export const DELETE_ORDER = "DELETE_ORDER";
+export const ORDER_SUCCESS = "ORDER_SUCCESS";
 
 export function getOrders(orders) {
   return {
@@ -25,6 +26,12 @@ export function deleteOrder(orderId) {
   return {
     type: DELETE_ORDER,
     orderId
+  };
+
+}export function orderSuccess(order) {
+  return {
+    type: ORDER_SUCCESS,
+    order
   };
 }
 
@@ -54,8 +61,10 @@ export function handleGetOrders() {
 
 export function handleCreateOrder(orderDetails) {
   return dispatch => {
-    createAnOrder(orderDetails).then((orderId) => {
-      handleGetAnOrder(orderId)
-    });
+    createAnOrder(orderDetails).then(({id}) => {
+      getAnOrder(id).then(order => {
+        dispatch(orderSuccess(order));
+      });
+    })
   };
 }
