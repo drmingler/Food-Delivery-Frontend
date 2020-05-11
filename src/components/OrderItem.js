@@ -1,8 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import {connect} from "react-redux";
-import { handleDeleteOrder } from "../actions/orders";
+import {handleDeleteOrder} from "../actions/orders";
 class OrderItem extends React.Component {
+
   handleViewOrderDetails = e => {
     e.preventDefault();
     const { orderId } = this.props;
@@ -12,6 +13,8 @@ class OrderItem extends React.Component {
     const { dispatch, orderId } = this.props;
     e.preventDefault();
     dispatch(handleDeleteOrder(orderId));
+
+
   };
 
   render() {

@@ -6,3 +6,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.CreateOrderForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FormContainer{
+  width: 40%;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  padding: 50px;
+
+
+
+}
+
+.ui.selection.dropdown{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
