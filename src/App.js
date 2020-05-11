@@ -1,15 +1,13 @@
 import React from "react";
-// import {
-//   getFoodItems,
-//   getAnOrder,
-//   deleteAnOrder,
-//   listOrders,
-//   createAnOrder
-// } from "./utils/api";
+import { connect } from "react-redux";
+import { handleGetOrders } from "./actions/orders";
+
+import { handleGetFoods } from "./actions/foods";
 
 class App extends React.Component {
   componentDidMount() {
-
+    this.props.dispatch(handleGetFoods());
+    this.props.dispatch(handleGetOrders());
   }
 
   render() {
@@ -20,5 +18,7 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
+function mapStateToProps({ loading }) {
+  return { loading };
+}
+export default connect(mapStateToProps)(App);
