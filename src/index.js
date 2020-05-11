@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import {Provider} from 'react-redux'
 import middleware from '../src/middleware'
 import reducer from '../src/reducers'
