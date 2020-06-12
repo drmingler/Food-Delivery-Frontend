@@ -7,6 +7,7 @@ import { handleGetFoods } from "../actions/foods";
 import LoadingBar from "react-redux-loading";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateOrder from "./CreateOrder";
+import OrderSuccessfull from "./OrderSuccessfull";
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends React.Component {
               <Route path ='/' exact component = {OrderContainer}/>
               <Route path ='/orderdetails/:id' exact component = {OrderDetails}/>
               <Route path ='/create' exact component = {CreateOrder}/>
+              <Route path ='/success' exact component = {OrderSuccessfull}/>
             </div>
           </div>
         </Fragment>
