@@ -1,9 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import {connect} from "react-redux";
-import {handleDeleteOrder} from "../actions/orders";
-class OrderItem extends React.Component {
+import { connect } from "react-redux";
+import { handleDeleteOrder } from "../actions/orders";
+import {Button} from "semantic-ui-react";
 
+class OrderItem extends React.Component {
   handleViewOrderDetails = e => {
     e.preventDefault();
     const { orderId } = this.props;
@@ -13,18 +14,21 @@ class OrderItem extends React.Component {
     const { dispatch, orderId } = this.props;
     e.preventDefault();
     dispatch(handleDeleteOrder(orderId));
-
-
   };
 
   render() {
-    const { order, orderId } = this.props;
+    const { order } = this.props;
     return (
-      <div>
-        <p>{order.customerName}</p>
-        <p>{orderId}</p>
-        <button onClick={this.handleViewOrderDetails}> View Order </button>
-        <button onClick={this.handleOrderDelete}> delete Order </button>
+      <div className={"order-container"}>
+        <h2 className="order-title">{order.customerName}</h2>
+        <div className={"buttons-container"}>
+          <button onClick={this.handleViewOrderDetails} className={"delete"}>
+            View Order
+          </button>
+          <button onClick={this.handleOrderDelete} className={"details"}>
+            Delete Order
+          </button>
+        </div>
       </div>
     );
   }
