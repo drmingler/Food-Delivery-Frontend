@@ -7,9 +7,8 @@ import { handleCreateOrder } from "../actions/orders";
 import { Redirect } from "react-router-dom";
 
 class CreateOrder extends React.Component {
-
   state = {
-    totalprice: 0,
+    totalPrice: 0,
     selectedFood: []
   };
   handleSelectFood = (e, data) => {
@@ -18,14 +17,14 @@ class CreateOrder extends React.Component {
     // Get All the foods from the redux store
     const { foods } = this.props;
 
-    // Get Calculate the price for a selected food item
+    // Calculate the price for a selected food item
     const total = calculateTotal(data.value, foods);
 
     this.setState(() => ({
-      totalprice: total,
+      totalPrice: total,
       selectedFood: data.value
     }));
-    return <Redirect to = '/'/>
+    //return <Redirect to="/" />;
   };
 
   handleSubmitOrder = e => {
@@ -38,16 +37,19 @@ class CreateOrder extends React.Component {
       foods: selectedFood
     };
     dispatch(handleCreateOrder(orderToBeDispatched));
-    this.props.history.push('/')
+
+    return Object.keys(orderToBeDispatched).length === 7
+      ? this.props.history.push("/success")
+      : null;
   };
 
   render() {
     const { foods } = this.props;
-    const { totalprice } = this.state;
+    const { totalPrice } = this.state;
     const foodItems = foodDropDown(foods);
     return (
       <div className={"CreateOrderForm"}>
-        <div className={"FormContainer"}>
+        <div className="outside-container">
           <Form onSubmit={this.handleSubmitOrder}>
             <Form.Field required>
               <label>User Name</label>
@@ -73,6 +75,12 @@ class CreateOrder extends React.Component {
               <label>Postal Code</label>
               <input placeholder="Postal Code" name={"postal_code"} />
             </Form.Field>
+            <div className={"total-price-create"}>
+              <h2 className={"total-container-total"}> Total Price :</h2>
+              <div className={"total-container"}>
+                <h1>{`$${totalPrice}`}</h1>
+              </div>
+            </div>
             <Dropdown
               placeholder="Foods"
               fluid
@@ -83,11 +91,6 @@ class CreateOrder extends React.Component {
               onChange={this.handleSelectFood}
               options={foodItems}
             />
-            <div>
-              <h1>
-                Total Price : <span>{`$${totalprice}`}</span>
-              </h1>
-            </div>
             <Button type="submit">Place Order</Button>
           </Form>
         </div>
