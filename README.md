@@ -1,5 +1,16 @@
 ## Food-Delivery-Frontend
-An application that allows you play the  “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. This App was built as part of Udacity's React Nanodegree Program.
+
+An application for the management of a Food delivery services.
+
+#### Functionalities:
+
+List all orders
+
+Create order
+
+Delete order
+
+Generates an invoice for orders
 
 #### Backend Repo Here : https://github.com/drmingler/FoodDelivery-Backend/tree/master
 
@@ -28,3 +39,11 @@ This is what the app should look like, once you open it in your browser.
 ![alt text](https://github.com/drmingler/Food-Delivery-Frontend/blob/master/src/images/image2.png?raw=true "View2")
 ![alt text](https://github.com/drmingler/Food-Delivery-Frontend/blob/master/src/images/image3.png?raw=true "View3")
 ![alt text](https://github.com/drmingler/Food-Delivery-Frontend/blob/master/src/images/image4.png?raw=true "View4")
+
+
+### Technologies used:
+* Django – Back-end server
+* API – RestFul Api
+* Sqlite – Database
+* React – Front-end 
+* React sematics ui – Styling
