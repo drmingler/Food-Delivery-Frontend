@@ -1,4 +1,4 @@
-## Would-You-Rather
+## Food-Delivery-Frontend
 An application that allows you play the  “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. This App was built as part of Udacity's React Nanodegree Program.
 
 #### Backend Repo Here : https://github.com/drmingler/FoodDelivery-Backend/tree/master
